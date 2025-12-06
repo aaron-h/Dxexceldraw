@@ -477,6 +477,16 @@ export const MobileToolBar = ({
               </DropdownMenu.Item>
             </>
           )}
+          {app.props.aiEnabled !== false && (
+            <DropdownMenu.Item
+              onSelect={() => app.setOpenDialog({ name: "mindmap" })}
+              icon={MagicIcon}
+              data-testid="toolbar-ai-mindmap"
+            >
+              {t("toolBar.aiMindMap")}
+              <DropdownMenu.Item.Badge>AI</DropdownMenu.Item.Badge>
+            </DropdownMenu.Item>
+          )}
         </DropdownMenu.Content>
       </DropdownMenu>
     </div>

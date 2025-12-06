@@ -12,7 +12,8 @@ export const useCreatePortalContainer = (opts?: {
   const [div, setDiv] = useState<HTMLDivElement | null>(null);
 
   const editorInterface = useEditorInterface();
-  const { theme } = useUIAppState();
+  const uiAppState = useUIAppState();
+  const theme = uiAppState?.theme;
 
   const { container: excalidrawContainer } = useExcalidrawContainer();
 

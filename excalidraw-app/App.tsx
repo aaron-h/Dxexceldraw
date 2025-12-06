@@ -741,6 +741,16 @@ const ExcalidrawWrapper = () => {
     [setShareDialogState],
   );
 
+  const onMindMapDialogOpen = useCallback(() => {
+    if (excalidrawAPI) {
+      excalidrawAPI.updateScene({
+        appState: {
+          openDialog: { name: "mindmap" },
+        },
+      });
+    }
+  }, [excalidrawAPI]);
+
   // browsers generally prevent infinite self-embedding, there are
   // cases where it still happens, and while we disallow self-embedding
   // by not whitelisting our own origin, this serves as an additional guard
@@ -812,6 +822,7 @@ const ExcalidrawWrapper = () => {
         initialData={initialStatePromiseRef.current.promise}
         isCollaborating={isCollaborating}
         onPointerUpdate={collabAPI?.onPointerUpdate}
+        aiEnabled={true}
         UIOptions={{
           canvasActions: {
             toggleTheme: true,
@@ -888,6 +899,7 @@ const ExcalidrawWrapper = () => {
           theme={appTheme}
           setTheme={(theme) => setAppTheme(theme)}
           refresh={() => forceRefresh((prev) => !prev)}
+          onMindMapDialogOpen={onMindMapDialogOpen}
         />
         <AppWelcomeScreen
           onCollabDialogOpen={onCollabDialogOpen}
@@ -1147,6 +1159,45 @@ const ExcalidrawWrapper = () => {
                     // grab new one as the event should be fired again
                     pwaEvent = null;
                   });
+                }
+              },
+            },
+            {
+              label: "Generate AI Mindmap",
+              category: DEFAULT_CATEGORIES.tools,
+              predicate: true,
+              keywords: ["ai", "mindmap", "generate", "brainstorm"],
+              perform: async () => {
+                if (excalidrawAPI) {
+                  const topic = prompt("Enter mindmap topic:");
+                  if (topic) {
+                    try {
+                      // Call our backend API to generate mindmap
+                      const response = await fetch(
+                        `${import.meta.env.VITE_APP_AI_BACKEND}/api/mindmap/generate`,
+                        {
+                          method: "POST",
+                          headers: {
+                            "Content-Type": "application/json",
+                          },
+                          body: JSON.stringify({ topic, depth: 2 }),
+                        }
+                      );
+                      
+                      const data = await response.json();
+                      if (data.success) {
+                        // Add the generated elements to the scene
+                        excalidrawAPI.updateScene({
+                          elements: data.data.elements,
+                        });
+                      } else {
+                        alert(`Error generating mindmap: ${data.error}`);
+                      }
+                    } catch (error) {
+                      console.error("Error generating mindmap:", error);
+                      alert("Failed to generate mindmap. Please check the console for details.");
+                    }
+                  }
                 }
               },
             },

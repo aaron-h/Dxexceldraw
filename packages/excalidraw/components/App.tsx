@@ -430,6 +430,7 @@ import { activeEyeDropperAtom } from "./EyeDropper";
 import FollowMode from "./FollowMode/FollowMode";
 import LayerUI from "./LayerUI";
 import { ElementCanvasButton } from "./MagicButton";
+import { MindMapDialog } from "./MindMapDialog";
 import { SVGLayer } from "./SVGLayer";
 import { searchItemInFocusAtom } from "./SearchMenu";
 import { isSidebarDockedAtom } from "./Sidebar/Sidebar";
@@ -2185,6 +2186,13 @@ class App extends React.Component<AppProps, AppState> {
                         )}
                         {showShapeSwitchPanel && (
                           <ConvertElementTypePopup app={this} />
+                        )}
+                        {this.state.openDialog?.name === "mindmap" && (
+                          <MindMapDialog
+                            onCloseRequest={() => {
+                              this.setOpenDialog(null);
+                            }}
+                          />
                         )}
                       </ExcalidrawActionManagerContext.Provider>
                       {this.renderEmbeddables()}

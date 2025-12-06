@@ -1,0 +1,68 @@
+.Qiuzhi2046Logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(var(--cyberpunk-glow));
+  }
+
+  &.is-small {
+    .Qiuzhi2046Logo-icon {
+      width: 24px;
+      height: 24px;
+    }
+    .Qiuzhi2046Logo-text {
+      width: 100px;
+      height: 24px;
+    }
+  }
+
+  &.is-normal {
+    .Qiuzhi2046Logo-icon {
+      width: 32px;
+      height: 32px;
+    }
+    .Qiuzhi2046Logo-text {
+      width: 120px;
+      height: 32px;
+    }
+  }
+
+  &.is-large {
+    .Qiuzhi2046Logo-icon {
+      width: 48px;
+      height: 48px;
+    }
+    .Qiuzhi2046Logo-text {
+      width: 180px;
+      height: 48px;
+    }
+  }
+
+  .Qiuzhi2046Logo-icon {
+    transition: all 0.3s ease;
+    stroke: var(--color-primary);
+    animation: pulse 2s infinite;
+  }
+
+  .Qiuzhi2046Logo-text {
+    transition: all 0.3s ease;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      filter: drop-shadow(0 0 5px var(--color-primary));
+    }
+    50% {
+      opacity: 0.8;
+      filter: drop-shadow(0 0 10px var(--color-primary));
+    }
+  }
+}

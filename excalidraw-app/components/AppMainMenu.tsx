@@ -2,6 +2,7 @@ import {
   loginIcon,
   ExcalLogo,
   eyeIcon,
+  MagicIcon,
 } from "@excalidraw/excalidraw/components/icons";
 import { MainMenu } from "@excalidraw/excalidraw/index";
 import React from "react";
@@ -22,6 +23,7 @@ export const AppMainMenu: React.FC<{
   theme: Theme | "system";
   setTheme: (theme: Theme | "system") => void;
   refresh: () => void;
+  onMindMapDialogOpen: () => any;
 }> = React.memo((props) => {
   return (
     <MainMenu>
@@ -36,6 +38,13 @@ export const AppMainMenu: React.FC<{
         />
       )}
       <MainMenu.DefaultItems.CommandPalette className="highlighted" />
+      <MainMenu.Item
+        icon={MagicIcon}
+        onClick={props.onMindMapDialogOpen}
+        className="highlighted"
+      >
+        AI生成思维导图
+      </MainMenu.Item>
       <MainMenu.DefaultItems.SearchMenu />
       <MainMenu.DefaultItems.Help />
       <MainMenu.DefaultItems.ClearCanvas />

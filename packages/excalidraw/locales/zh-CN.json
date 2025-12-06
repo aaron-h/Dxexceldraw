@@ -313,7 +313,8 @@
     "hand": "抓手（平移工具）",
     "extraTools": "更多工具",
     "mermaidToExcalidraw": "Mermaid 至 Excalidraw",
-    "convertElementType": "切换形状种类"
+    "convertElementType": "切换形状种类",
+    "aiMindMap": "AI生成思维导图"
   },
   "element": {
     "rectangle": "矩形",

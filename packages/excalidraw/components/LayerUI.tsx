@@ -62,6 +62,7 @@ import { ImageExportDialog } from "./ImageExportDialog";
 import { Island } from "./Island";
 import { JSONExportDialog } from "./JSONExportDialog";
 import { LaserPointerButton } from "./LaserPointerButton";
+import { NToogleLogo } from "./NToogleLogo";
 
 import "./LayerUI.scss";
 import "./Toolbar.scss";
@@ -304,7 +305,10 @@ const LayerUI = ({
             gap={spacing.menuTopGap}
             className={clsx("App-menu_top__left")}
           >
-            {renderCanvasActions()}
+            <Stack.Row gap={8} align="center">
+              {renderCanvasActions()}
+              <NToogleLogo size="normal" />
+            </Stack.Row>
             <div
               className={clsx("selected-shape-actions-container", {
                 "selected-shape-actions-container--compact":

@@ -1,0 +1,68 @@
+.NToogleLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(var(--cyberpunk-glow));
+  }
+
+  &.is-small {
+    .NToogleLogo-icon {
+      width: 24px;
+      height: 24px;
+    }
+    .NToogleLogo-text {
+      width: 80px;
+      height: 24px;
+    }
+  }
+
+  &.is-normal {
+    .NToogleLogo-icon {
+      width: 32px;
+      height: 32px;
+    }
+    .NToogleLogo-text {
+      width: 100px;
+      height: 32px;
+    }
+  }
+
+  &.is-large {
+    .NToogleLogo-icon {
+      width: 48px;
+      height: 48px;
+    }
+    .NToogleLogo-text {
+      width: 140px;
+      height: 48px;
+    }
+  }
+
+  .NToogleLogo-icon {
+    transition: all 0.3s ease;
+    stroke: var(--color-primary);
+    animation: pulse 2s infinite;
+  }
+
+  .NToogleLogo-text {
+    transition: all 0.3s ease;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      filter: drop-shadow(0 0 5px var(--color-primary));
+    }
+    50% {
+      opacity: 0.8;
+      filter: drop-shadow(0 0 10px var(--color-primary));
+    }
+  }
+}

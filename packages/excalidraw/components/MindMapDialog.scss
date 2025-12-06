@@ -1,0 +1,160 @@
+.mindmap-dialog {
+  .mindmap-dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .mindmap-dialog-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--color-on-surface);
+    }
+
+    .mindmap-dialog-textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--color-border-outline);
+      border-radius: var(--border-radius-md);
+      background-color: var(--color-surface-mid);
+      color: var(--color-on-surface);
+      font-family: var(--font-family);
+      font-size: 0.875rem;
+      resize: vertical;
+      min-height: 120px;
+      transition: all 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: var(--cyberpunk-glow);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .mindmap-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .mindmap-dialog-generate-button,
+  .mindmap-dialog-insert-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--border-radius-md);
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+  }
+
+  .mindmap-dialog-generate-button {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary-container);
+    box-shadow: 0 0 4px var(--color-primary);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-primary-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--cyberpunk-glow);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  .mindmap-dialog-insert-button {
+    background-color: var(--color-surface-primary-container);
+    color: var(--color-on-surface);
+    border-color: var(--color-gray-70);
+
+    &:hover {
+      background-color: var(--color-surface-high);
+      border-color: var(--color-primary);
+      transform: translateY(-1px);
+      box-shadow: 0 0 8px var(--color-primary);
+    }
+  }
+
+  .mindmap-dialog-loading-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--color-primary);
+    animation: spin 1s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .mindmap-dialog-error {
+    padding: 0.75rem;
+    background-color: rgba(233, 69, 96, 0.1);
+    color: var(--color-danger);
+    border: 1px solid var(--color-danger);
+    border-radius: var(--border-radius-md);
+    font-size: 0.875rem;
+    box-shadow: 0 0 4px var(--color-danger);
+  }
+
+  .mindmap-dialog-result {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    background-color: var(--color-surface-mid);
+    border: 1px solid var(--color-border-outline);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 0 4px rgba(255, 107, 53, 0.2);
+
+    h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-shadow: 0 0 4px var(--color-primary);
+    }
+
+    .mindmap-dialog-result-content {
+      padding: 1rem;
+      background-color: var(--color-surface-low);
+      border: 1px solid var(--color-border-outline-variant);
+      border-radius: var(--border-radius-md);
+      max-height: 400px;
+      overflow-y: auto;
+
+      pre {
+        margin: 0;
+        font-family: var(--font-family-mono);
+        font-size: 0.875rem;
+        color: var(--color-on-surface);
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+    }
+  }
+}

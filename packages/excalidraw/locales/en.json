@@ -171,7 +171,8 @@
     "linkToElement": "Link to object",
     "wrapSelectionInFrame": "Wrap selection in frame",
     "tab": "Tab",
-    "shapeSwitch": "Switch shape"
+    "shapeSwitch": "Switch shape",
+    "preview": "Preview"
   },
   "elementLink": {
     "title": "Link to object",
@@ -237,7 +238,10 @@
     "publishLibrary": "Rename or publish",
     "submit": "Submit",
     "confirm": "Confirm",
-    "embeddableInteractionButton": "Click to interact"
+    "embeddableInteractionButton": "Click to interact",
+    "loading": "Loading...",
+    "generate": "Generate",
+    "insert": "Insert"
   },
   "alerts": {
     "clearReset": "This will clear the whole canvas. Are you sure?",
@@ -297,6 +301,7 @@
     "rectangle": "Rectangle",
     "diamond": "Diamond",
     "ellipse": "Ellipse",
+    "aiMindMap": "AI Generate Mind Map",
     "arrow": "Arrow",
     "line": "Line",
     "freedraw": "Draw",
